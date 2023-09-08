@@ -1,0 +1,13 @@
+{
+    "task": "login",
+    "sla": [300, 400, 1000],
+    "obj_cost": [2, 2, 2],
+    "obj_hardCost": [400, 500, 1000],
+    "repeats": 30,
+    "periods": 150,
+    "rounds": 10,
+    "rate": 25,
+    "duration": "30s",
+    "task_num": 3,
+    "mult_dist": "333"
+}
