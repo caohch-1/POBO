@@ -1,4 +1,6 @@
 # POBO: Safe and Optimal Resource Management for Cloud Microservices
+Resource management in microservices is challenging due to the uncertain latency-resource relationship, dynamic environment, and strict Service-Level Agreement (SLA) guarantees. This paper presents a Pessimistic and Optimistic Bayesian Optimization framework, named POBO, for safe and optimal resource configuration for microservice applications. POBO leverages Bayesian learning to estimate the uncertain latency-resource functions and combines primal-dual and penalty-based optimization to maximize resource efficiency while guaranteeing strict SLAs. We prove that POBO can achieve sublinear regret and SLA violation against the optimal resource configuration in hindsight. We implement a prototype of POBO and conducted extensive experiments on a real-world microservice application. Our results show POBO can find the safe and optimal configuration efficiently, outperforming the Kubernetes' built-in auto-scaling module and the state-of-the-art algorithm.
+
 ## Overview
 When receiving a request from the user, POBO sends the request to the **Learning** module to estimate the request latency w.r.t. a variety of resource configurations. The **Decision** module  determines the best resource configuration for the request and adjusts the number of containers via the resource manager. After the request is completed, POBO collects the feedback, including Service-Level Agreement (SLA) violation and tail latency, which is used to update **Learning** and **Decision** modules for the next period.
 ![System arch. of POBO](./workflow-v4.png)
@@ -20,7 +22,7 @@ We implement different modules of POBO in seperate python scripts as follows:
 
 ## Experiments
 ### Single-type Requet
-Simply run the following command and POBO will start work:
+Run the following command and POBO will start work:
 ```bash
 python -m AE.simple.run
 ```
@@ -36,7 +38,7 @@ For the senstivity study, you can change the value of `obj_xxx` variable in [par
 
 
 ### Multi-type Requet
-Simply run the following command and POBO will start work:
+Run the following command and POBO will start work:
 ```bash
 python -m AE.simple.runMulti
 ```
