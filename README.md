@@ -31,7 +31,7 @@ python -m AE.simple.run
 Change the value of `task` variable in [paras.json](paras.json) to test different requets.
 
 #### Latency-resource function learning
-For the latency-resource function POBO leared, `mugG` and `sigmaG` in [Algorithm](./algo.py) is the estimated mean and variance of P90 tail latency.
+For the latency-resource function POBO learned, `mugG` and `sigmaG` in [Algorithm](./algo.py) is the estimated mean and variance of P90 tail latency.
 
 #### Sensitivity study
 For the senstivity study, you can change the value of `obj_xxx` variable in [paras.json](paras.json).
