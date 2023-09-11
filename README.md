@@ -6,13 +6,13 @@ When receiving a request from the user, POBO sends the request to the **Learning
 ![System arch. of POBO](./workflow-v4.png)
 
 ## Aetup environment
-- A Kubernetes cluster with hotel-reservation in [DeathstarBench](https://github.com/delimitrou/DeathStarBench)
+- A Kubernetes cluster with the microservice system in [DeathstarBench](https://github.com/delimitrou/DeathStarBench)
 - Python environment according to [environment.yml](./environment.yml)
 - To enable and test HPA please follow [the offical documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) 
 - To monitor the overhead of Jaeger, please install [Prometheus](https://prometheus.io/) on k8s cluster
 
 ## Modules in POBO
-We implement different modules of POBO in seperate python scripts as follows:
+We implement different modules of POBO in separate Python scripts as follows:
 
 - [Algorithm](./algo.py): Main algorithm of POBO, including **Learning** and **Decision** module. We also implement the baseline CKB in this script.
 - [Jaeger Collector](./jaegerCollector.py): We use Jaeger to implement end-to-end distributed tracing. POBO collects tracing data by leveraging Jaeger's exposed RESTful APIs. To change the sampling rate please refer to [DeathstarBench Documentation](https://github.com/delimitrou/DeathStarBench)
@@ -21,27 +21,27 @@ We implement different modules of POBO in seperate python scripts as follows:
 
 
 ## Experiments
-### Single-type Requet
+### Single-type Request
 Run the following command and POBO will start work:
 ```bash
 python -m AE.simple.run
 ```
 
 #### Resource usage and SLAs
-Change the value of `task` variable in [paras.json](paras.json) to test different requets.
+Change the value of `task` variable in [paras.json](paras.json) to test different requests.
 
 #### Latency-resource function learning
 For the latency-resource function POBO learned, `mugG` and `sigmaG` in [Algorithm](./algo.py) is the estimated mean and variance of P90 tail latency.
 
 #### Sensitivity study
-For the senstivity study, you can change the value of `obj_xxx` variable in [paras.json](paras.json).
+For the sensitivity study, you can change the value of `obj_xxx` variable in [paras.json](paras.json).
 
 
-### Multi-type Requet
+### Multi-type Request
 Run the following command and POBO will start work:
 ```bash
 python -m AE.simple.runMulti
 ```
 
-Change the value of `mult_dist` variable in [paras.json](paras.json) to test different distribution, which includes all experinment setting for multi-type requests.
+Change the value of `mult_dist` variable in [paras.json](paras.json) to test different distributions, including all experiment settings for multi-type requests.
 
